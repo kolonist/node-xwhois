@@ -59,19 +59,19 @@ All asynchronous functions in this library return Promises.
 
 
 # Documentation
-- [ip2long]     (#ip2long\(ip\))
-- [isIP]        (#isIP)
-- [isDomain]    (#isDomain)
-- [reverse]     (#reverse)
-- [nslookup]    (#nslookup)
-- [whois]       (#whois)
-- [torInfo]     (#torInfo)
-- [extractIP]   (#extractIP)
-- [extractIPGen](#extractIPGen)
-- [geoInit]     (#geoInit)
-- [geoInfo]     (#geoInfo)
-- [bgpInfo]     (#bgpInfo)
-- [hostInfo]    (#hostInfo)
+- [ip2long]     (#ip2longip)
+- [isIP]        (#isIPhost)
+- [isDomain]    (#isDomainhost)
+- [reverse]     (#reverseip)
+- [nslookup]    (#nslookuphost)
+- [whois]       (#whoishost)
+- [torInfo]     (#torInfoip)
+- [extractIP]   (#extractIPstr)
+- [extractIPGen](#extractIPGenstr)
+- [geoInit]     (#geoInitdbPath-files)
+- [geoInfo]     (#geoInfohost)
+- [bgpInfo]     (#bgpInfohost)
+- [hostInfo]    (#hostInfohost)
 
 ## `ip2long(ip)`
 A JavaScript equivalent of PHP's ip2long(). Convert IPv4 address in dotted notation to 32-bit long integer.
