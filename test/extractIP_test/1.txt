@@ -1,0 +1,205 @@
+
+Hide My Ass
+
+    Home How it works Pricing Tools & Contact Help
+
+Free IP:port proxy lists
+
+We offer the largest real-time database of free working public proxies. Check it out below – or try our Premium service. For a one-off registration fee, we’ll send the entire list to your inbox every day in raw .txt format.
+Register here for our Premium service
+
+Our Premium service emails you a daily attachment of our entire public proxy database in a raw .txt format, making downloading and using public proxy servers much easier. Only $24.95 for life!
+
+    Use a proxy server to mask your true IP address and surf anonymously online
+    Public proxy servers can be used with web browsers and other apps that support proxy use
+    Our proxy lists are checked in real time with auto-updatable results 24/7
+
+    Sortable by PlanetLab/Codden, so Planet Lab proxies can be easily distinguished
+    Sortable by speed, with the fastest proxies listed first
+    Sortable by country
+
+Free IP:PORT proxy lists
+Proxy country
+All countries
+
+    Sort by count
+    Sort by name
+
+Ports
+All ports
+TIP: Enter specific ports in the above box. Separate more than one port by a comma (8080, 80,443 ...). A maximum of 20 ports allowed.
+Protocol
+HTTP
+HTTPS
+socks4/5
+Anonymity level
+None
+Low
+Medium
+High
+High +KA
+PlanetLab
+Include
+Speed
+Slow
+Medium
+Fast
+Connection Time
+Slow
+Medium
+Fast
+Last Update     IP Address  Port    Country     Speed   Connection Time     Type    Anon
+48secs  106.58.63.63        55336   flag China
+
+    HTTPS   High +KA
+48secs  60.164.223.11       55336   flag China
+
+    HTTP    Low
+48secs  218.61.39.44        55336   flag China
+
+    HTTPS   High +KA
+48secs  190.228.71.113      80  flag Argentina
+
+    HTTPS   High +KA
+48secs  157.122.96.65       55336   flag China
+
+    HTTP    Low
+48secs  46.0.195.185        3128    flag Russia
+
+    HTTP    Low
+48secs  175.43.123.14       55336   flag China
+
+    HTTPS   High +KA
+1min    116.31.102.82       80  flag Japan
+
+    HTTPS   High +KA
+1min    123.58.129.48       443     flag China
+
+    HTTPS   High +KA
+1min    112.114.63.20       55336   flag China
+
+    HTTPS   High +KA
+1min    31.146.182.122      443     flag Georgia
+
+    HTTPS   High +KA
+1min    220.181.143.14      9999    flag China
+
+    HTTP    Low
+2mins   111.12.13.164       55336   flag China
+
+    HTTP    Low
+2mins   112.114.63.36       55336   flag China
+
+    HTTPS   High +KA
+2mins   222.45.16.207       8118    flag China
+
+    HTTP    High +KA
+2mins   115.238.225.26      80  flag China
+
+    HTTP    Low
+2mins   218.61.39.56        55336   flag China
+
+    HTTPS   High +KA
+2mins   183.207.229.200     8080    flag China
+
+    HTTP    High +KA
+2mins   218.60.101.25       55336   flag China
+
+    HTTPS   High +KA
+3mins   42.96.175.11        3128    flag China
+
+    HTTPS   High +KA
+3mins   111.161.126.100     80  flag China
+
+    HTTPS   High +KA
+3mins   221.181.39.139      55336   flag China
+
+    HTTPS   High +KA
+3mins   211.23.19.130       80  flag Taiwan
+
+    HTTP    Low
+3mins   218.206.207.37      55336   flag China
+
+    HTTPS   High +KA
+4mins   146.255.78.254      8080    flag Macedonia
+
+    HTTP    Low
+4mins   81.30.71.165        80  flag Netherlands
+
+    HTTP    High +KA
+4mins   124.200.39.254      8118    flag China
+
+    HTTP    High +KA
+4mins   61.19.86.244        808     flag Thailand
+
+    HTTPS   High +KA
+5mins   112.114.63.35       55336   flag China
+
+    HTTPS   High +KA
+5mins   124.65.163.10       8080    flag China
+
+    HTTP    High +KA
+5mins   183.87.117.253      80  flag India
+
+    HTTP    Low
+5mins   31.170.178.38       8080    flag Czechia
+
+    HTTPS   High +KA
+5mins   220.168.133.14      55336   flag China
+
+    HTTP    Low
+5mins   106.58.63.84        55336   flag China
+
+    HTTPS   High +KA
+6mins   52.8.111.148        3128    flag USA
+
+    HTTPS   High +KA
+6mins   174.46.79.26        80  flag USA
+
+    HTTP    High +KA
+6mins   124.202.218.218     8118    flag China
+
+    HTTP    High +KA
+6mins   101.71.27.120       80  flag China
+
+    HTTP    High +KA
+6mins   69.57.48.211        8080    flag USA
+
+    HTTP    Low
+6mins   111.161.126.98      80  flag China
+
+    HTTPS   High +KA
+6mins   112.114.63.12       55336   flag China
+
+    HTTPS   High +KA
+6mins   185.28.193.95       8080    flag Europe
+
+    HTTPS   High +KA
+6mins   60.164.223.7        55336   flag China
+
+    HTTP    Low
+6mins   186.15.83.185       8080    flag Costa Rica
+
+    HTTP    Low
+7mins   112.25.8.137        55336   flag China
+
+    HTTPS   High +KA
+7mins   178.215.111.71      9999    flag Russia
+
+    HTTP    Low
+7mins   183.250.177.17      55336   flag China
+
+    HTTP    Low
+7mins   122.225.106.36      80  flag China
+
+    HTTP    Low
+8mins   175.43.123.28       55336   flag China
+
+    HTTPS   High +KA
+8mins   115.231.97.251      3128    flag China
+
+    HTTPS   High +KA
+
+Privacy Terms & Conditions
+
+Copyright ©2005-2014 Privax Ltd. All Rights Reserved.

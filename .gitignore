@@ -1,0 +1,9 @@
+node_modules
+GeoLiteCity.dat
+GeoLiteCityv6.dat
+GeoIPASNum.dat
+GeoIPASNumv6.dat
+GeoLite2-City.mmdb
+ip2location.bin
+IP2LOCATION-LITE-DB5.BIN
+IP2LOCATION-LITE-DB5.IPV6.BIN
