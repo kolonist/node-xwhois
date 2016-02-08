@@ -1,6 +1,6 @@
 {
     "name"       : "node-xwhois",
-    "version"    : "1.0.2",
+    "version"    : "1.0.3",
     "description": "Advanced whois library with extended capabilities.",
     "main"       : "./lib/whois.js",
     "dependencies": {

@@ -153,14 +153,14 @@ console.log('torInfo()');
 
 let testVectors = [
       {ip: '199.87.154.255' , isIP: true,  isTOR: true }
-    , {ip: '162.243.123.220', isIP: true,  isTOR: true }
-    , {ip: '23.80.226.4'    , isIP: true,  isTOR: true }
     , {ip: '41.72.133.174'  , isIP: true,  isTOR: true }
     , {ip: '212.83.162.152' , isIP: true,  isTOR: true }
     , {ip: '37.187.103.156' , isIP: true,  isTOR: true }
     , {ip: '81.4.109.125'   , isIP: true,  isTOR: true }
-    , {ip: '130.253.21.123' , isIP: true,  isTOR: true }
-    , {ip: '188.138.88.168' , isIP: true,  isTOR: true }
+    , {ip: '162.243.123.220', isIP: true,  isTOR: false}
+    , {ip: '23.80.226.4'    , isIP: true,  isTOR: false}
+    , {ip: '130.253.21.123' , isIP: true,  isTOR: false}
+    , {ip: '188.138.88.168' , isIP: true,  isTOR: false}
     , {ip: '8.8.8.8'        , isIP: true,  isTOR: false}
     , {ip: '8.8.4.4'        , isIP: true,  isTOR: false}
     , {ip: '127.0.0.1'      , isIP: true,  isTOR: false}
