@@ -1,25 +1,20 @@
 {
   "name": "node-xwhois",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "dependencies": {
     "big-integer": {
-      "version": "1.6.11",
+      "version": "1.6.16",
       "from": "big-integer@>=1.6.8",
-      "resolved": "https://registry.npmjs.org/big-integer/-/big-integer-1.6.11.tgz"
-    },
-    "depd": {
-      "version": "1.1.0",
-      "from": "depd@1.1.0",
-      "resolved": "https://registry.npmjs.org/depd/-/depd-1.1.0.tgz"
+      "resolved": "https://registry.npmjs.org/big-integer/-/big-integer-1.6.16.tgz"
     },
     "ip2location-nodejs": {
-      "version": "7.0.1",
-      "from": "ip2location-nodejs@7.0.1",
-      "resolved": "https://registry.npmjs.org/ip2location-nodejs/-/ip2location-nodejs-7.0.1.tgz"
+      "version": "8.0.0",
+      "from": "ip2location-nodejs@8.0.0",
+      "resolved": "https://registry.npmjs.org/ip2location-nodejs/-/ip2location-nodejs-8.0.0.tgz"
     },
     "maxmind": {
       "version": "0.6.0",
-      "from": "maxmind@*",
+      "from": "maxmind@>=0.6.0 <0.7.0",
       "resolved": "https://registry.npmjs.org/maxmind/-/maxmind-0.6.0.tgz"
     },
     "maxmind-db-reader": {
@@ -333,9 +328,9 @@
       "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.5.2.tgz"
     },
     "validator": {
-      "version": "4.7.1",
-      "from": "validator@4.7.1",
-      "resolved": "https://registry.npmjs.org/validator/-/validator-4.7.1.tgz"
+      "version": "5.7.0",
+      "from": "validator@5.7.0",
+      "resolved": "https://registry.npmjs.org/validator/-/validator-5.7.0.tgz"
     },
     "wordwrap": {
       "version": "0.0.3",

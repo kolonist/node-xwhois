@@ -152,24 +152,26 @@ console.log('OK\n');
 console.log('torInfo()');
 
 let testVectors = [
-      {ip: '199.87.154.255' , isIP: true,  isTOR: true }
-    , {ip: '41.72.133.174'  , isIP: true,  isTOR: true }
-    , {ip: '212.83.162.152' , isIP: true,  isTOR: true }
-    , {ip: '37.187.103.156' , isIP: true,  isTOR: true }
-    , {ip: '81.4.109.125'   , isIP: true,  isTOR: true }
-    , {ip: '162.243.123.220', isIP: true,  isTOR: false}
-    , {ip: '23.80.226.4'    , isIP: true,  isTOR: false}
-    , {ip: '130.253.21.123' , isIP: true,  isTOR: false}
-    , {ip: '188.138.88.168' , isIP: true,  isTOR: false}
-    , {ip: '8.8.8.8'        , isIP: true,  isTOR: false}
-    , {ip: '8.8.4.4'        , isIP: true,  isTOR: false}
-    , {ip: '127.0.0.1'      , isIP: true,  isTOR: false}
-    , {ip: '5.135.189.181'  , isIP: true,  isTOR: false}
-    , {ip: 'xinit.ru'       , isIP: false, isTOR: false}
-    , {ip: 'example.com'    , isIP: false, isTOR: false}
-    , {ip: 'test string'    , isIP: false, isTOR: false}
-    , {ip: ''               , isIP: false, isTOR: false}
-    , {ip: 0                , isIP: false, isTOR: false}
+    {ip: '178.32.181.96'  , isIP: true,  isTOR: true },
+    {ip: '94.242.246.23'  , isIP: true,  isTOR: true },
+    {ip: '94.242.246.24'  , isIP: true,  isTOR: true },
+    {ip: '89.163.237.45'  , isIP: true,  isTOR: true },
+    {ip: '104.131.65.225' , isIP: true,  isTOR: true },
+
+    {ip: '162.243.123.220', isIP: true,  isTOR: false},
+    {ip: '23.80.226.4'    , isIP: true,  isTOR: false},
+    {ip: '130.253.21.123' , isIP: true,  isTOR: false},
+    {ip: '188.138.88.168' , isIP: true,  isTOR: false},
+    {ip: '8.8.8.8'        , isIP: true,  isTOR: false},
+    {ip: '8.8.4.4'        , isIP: true,  isTOR: false},
+    {ip: '127.0.0.1'      , isIP: true,  isTOR: false},
+    {ip: '5.135.189.181'  , isIP: true,  isTOR: false},
+
+    {ip: 'xinit.ru'       , isIP: false, isTOR: false},
+    {ip: 'example.com'    , isIP: false, isTOR: false},
+    {ip: 'test string'    , isIP: false, isTOR: false},
+    {ip: ''               , isIP: false, isTOR: false},
+    {ip: 0                , isIP: false, isTOR: false}
 ];
 
 testVectors.forEach(test => {
@@ -210,11 +212,11 @@ testVectors = [
     2400:cb00::/32                             2405:8100::/32
     2405:b500::/32                             2606:4700::/32
     2803:f800::/32
-    `
-    , fs.readFileSync(path.join('test', 'extractIP_test', '1.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '2.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '3.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '4.txt'), {encoding: 'utf8'})
+    `,
+     fs.readFileSync(path.join('test', 'extractIP_test', '1.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '2.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '3.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '4.txt'), {encoding: 'utf8'})
 ];
 
 testVectors.forEach(str => {
@@ -245,11 +247,11 @@ testVectors = [
     2400:cb00::/32                             2405:8100::/32
     2405:b500::/32                             2606:4700::/32
     2803:f800::/32
-    `
-    , fs.readFileSync(path.join('test', 'extractIP_test', '1.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '2.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '3.txt'), {encoding: 'utf8'})
-    , fs.readFileSync(path.join('test', 'extractIP_test', '4.txt'), {encoding: 'utf8'})
+    `,
+     fs.readFileSync(path.join('test', 'extractIP_test', '1.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '2.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '3.txt'), {encoding: 'utf8'}),
+     fs.readFileSync(path.join('test', 'extractIP_test', '4.txt'), {encoding: 'utf8'})
 ];
 
 testVectors.forEach(str => {
@@ -274,27 +276,27 @@ let geoInitialization = whois.geoInit(path.join('test', 'GeoIP'), {
 
 geoInitialization.then(() => {
     let testVectors = [
-          '121.200.103.190'
-        , '109.111.139.45'
-        , '77.109.141.140'
-        , '127.0.0.1'
-        , '37.187.130.68'
-        , '121.69.113.7'
-        , '124.53.86.188'
-        , '83.167.112.7'
-        , '91.76.97.133'
-        , '212.154.238.181'
-        , '201.11.139.220'
-        , '200.3.223.231'
-        , '107.170.65.197'
-        , '195.154.215.240'
-        , '78.46.112.219'
-        , '37.60.214.34'
-        , '5.135.189.181'
-        , '93.228.75.194'
-        , 'fc00:3::1200:ff:fe00:1'
-        , '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d'
-        , '2001:41d0:8:c6b5::1'
+          '121.200.103.190',
+         '109.111.139.45',
+         '77.109.141.140',
+         '127.0.0.1',
+         '37.187.130.68',
+         '121.69.113.7',
+         '124.53.86.188',
+         '83.167.112.7',
+         '91.76.97.133',
+         '212.154.238.181',
+         '201.11.139.220',
+         '200.3.223.231',
+         '107.170.65.197',
+         '195.154.215.240',
+         '78.46.112.219',
+         '37.60.214.34',
+         '5.135.189.181',
+         '93.228.75.194',
+         'fc00:3::1200:ff:fe00:1',
+         '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d',
+         '2001:41d0:8:c6b5::1'
     ];
 
     testVectors.forEach(host => {
@@ -310,27 +312,27 @@ console.log('OK\n');
 console.log('bgpInfo()');
 
 testVectors = [
-      '121.200.103.190'
-    , '109.111.139.45'
-    , '77.109.141.140'
-    , '127.0.0.1'
-    , '37.187.130.68'
-    , '121.69.113.7'
-    , '124.53.86.188'
-    , '83.167.112.7'
-    , '91.76.97.133'
-    , '212.154.238.181'
-    , '201.11.139.220'
-    , '200.3.223.231'
-    , '107.170.65.197'
-    , '195.154.215.240'
-    , '78.46.112.219'
-    , '37.60.214.34'
-    , '5.135.189.181'
-    , '93.228.75.194'
-    , 'fc00:3::1200:ff:fe00:1'
-    , '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d'
-    , '2001:41d0:8:c6b5::1'
+      '121.200.103.190',
+     '109.111.139.45',
+     '77.109.141.140',
+     '127.0.0.1',
+     '37.187.130.68',
+     '121.69.113.7',
+     '124.53.86.188',
+     '83.167.112.7',
+     '91.76.97.133',
+     '212.154.238.181',
+     '201.11.139.220',
+     '200.3.223.231',
+     '107.170.65.197',
+     '195.154.215.240',
+     '78.46.112.219',
+     '37.60.214.34',
+     '5.135.189.181',
+     '93.228.75.194',
+     'fc00:3::1200:ff:fe00:1',
+     '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d',
+     '2001:41d0:8:c6b5::1'
 ];
 
 testVectors.forEach(host => {
@@ -345,13 +347,13 @@ console.log('hostInfo()');
 
 geoInitialization.then(() => {
     testVectors = [
-          '121.200.103.190'
-        , '162.243.123.220'
-        , '5.135.189.181'
-        , '127.0.0.1'
-        , 'xinit.ru'
-        , 'yandex.ru'
-        , '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d'
+          '121.200.103.190',
+         '162.243.123.220',
+         '5.135.189.181',
+         '127.0.0.1',
+         'xinit.ru',
+         'yandex.ru',
+         '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d'
     ];
 
     testVectors.forEach(host => {

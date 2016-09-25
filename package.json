@@ -1,26 +1,26 @@
 {
     "name"       : "node-xwhois",
-    "version"    : "1.0.4",
+    "version"    : "1.0.5",
     "description": "Advanced whois library with extended capabilities.",
     "main"       : "./lib/whois.js",
-    "dependencies": {
-        "maxmind"           : "*",
-        "maxmind-db-reader" : "*",
-        "ip2location-nodejs": "*",
-        "node-whois"        : "*",
-        "validator"         : "*"
-    },
+    "author"     : "Alexander Zubakov <developer@xinit.ru>",
+    "license"    : "MIT",
+
     "scripts": {
-        "test": "node --harmony_rest_parameters test/index.js",
-        "bench": "node test/bench.js"
+        "test"     : "node test/index.js",
+        "bench"    : "node test/bench.js",
+        "bench:bgp": "node test/bench-bgp.js"
     },
+
     "repository": {
         "type": "git",
         "url" : "https://github.com/kolonist/node-xwhois"
     },
+
     "bugs": {
         "url": "https://github.com/kolonist/node-xwhois/issues"
     },
+
     "keywords": [
         "whois",
         "geoIP",
@@ -34,6 +34,17 @@
         "IPv4",
         "IPv6"
     ],
-    "author": "Alexander Zubakov <developer@xinit.ru>",
-    "license": "MIT"
+
+    "dependencies": {
+        "maxmind"           : "0.6",
+        "maxmind-db-reader" : "*",
+        "ip2location-nodejs": "*",
+        "node-whois"        : "*",
+        "validator"         : "*"
+    },
+
+    "devDependencies": {
+        "eslint"              : "*",
+        "eslint-config-google": "*"
+    }
 }

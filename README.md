@@ -9,12 +9,6 @@ Currently it provides the following information:
 - DNS information
 - GeoLocation information simultaneously using MaxMind and IP2Location databases
 
-
-# System requirements
-
-You need node.js v4 and later to use this library without `--harmony` switches.
-
-
 # Installation
 
 You can install it with this command:
@@ -31,7 +25,7 @@ Simplest way to get all possible information about domain name or IP address is 
 'use strict'
 const whois = require('node-xwhois');
 
-const host1 = 'xinit.co';
+const host1 = 'xinit.ru';
 const host2 = '8.8.8.8';
 
 whois.geoInit('test/GeoIP', {
@@ -67,7 +61,6 @@ All asynchronous functions in this library return Promises.
 - [whois]       (#whoishost)
 - [torInfo]     (#torinfoip)
 - [extractIP]   (#extractipstr)
-- [extractIPGen](#extractipgenstr)
 - [geoInit]     (#geoinitdbpath-files)
 - [geoInfo]     (#geoinfohost)
 - [bgpInfo]     (#bgpinfohost)
@@ -87,17 +80,17 @@ You can pass IP in all possible representations, i.e.:
 030000001353
 ```
 ### Parameters
-**ip**  
+**ip**
 String. IPv4-address in one of possible representations.
 
-### Return 
+### Return
 32-bit number notation of IP-address expressed in decimal.
 
 ## `isIP(host)`
 Detect if `host` is correct IP-address. Internally uses `net.isIP()`.
 
 ### Parameters
-**host**  
+**host**
 String to test.
 
 ### Return
@@ -107,20 +100,20 @@ String to test.
 Detect if host is correct domain name. It can't test IDN's. And it can't define if domain name is really exist or can exist. This function just performs syntax check.
 
 ### Parameters
-**host**  
+**host**
 String to test.
 
-### Return 
+### Return
 True if `host` is correct domain name false otherwise.
 
 ## `reverse(ip)`
 Define domain names by IP-address using reverse domain request.
 
 ### Parameters
-**ip**  
+**ip**
 IP-address to reverse.
 
-### Return 
+### Return
 Promise where `then()` takes function with array of hostnames.
 
 ### Example
@@ -136,10 +129,10 @@ whois.reverse(host)
 Get host info of domain name like `host -a` command.
 
 ### Parameters
-**host**  
+**host**
 Domain name.
 
-### Return 
+### Return
 Promise where `then()` takes function with object like this:
 ```JavaScript
 {
@@ -167,10 +160,10 @@ whois.nslookup(host)
 Perform whois request.
 
 ### Parameters
-**host**  
+**host**
 Domain name or IP-address.
 
-### Return 
+### Return
 Promise where `then()` takes function with whois text.
 
 ### Example
@@ -186,7 +179,7 @@ whois.whois(host)
 Check if IP address is a TOR node.
 
 ### Parameters
-**ip**  
+**ip**
 IP-address.
 
 ### Return
@@ -213,7 +206,7 @@ whois.torInfo(host)
 Extract IP-addresses from raw text. If some IP-address appears in `str` multiple times then it will be returned in answer only once.
 
 ### Parameters
-**str**  
+**str**
 String to extract IP-addresses from.
 
 ### Return
@@ -236,13 +229,13 @@ whois.extractIP(ipStr)
 .catch(err => console.log(err));
 ```
 ## `extractIPGen(str)`
-Extract IP-addresses from raw text.  
+Extract IP-addresses from raw text.
 Unlike `extractIP()` this function returns not Promise but Generator.
 
 _Note that this generator function is much more slower than `extractIP()` promise function._
 
 ### Parameters
-**str**  
+**str**
 String to extract IP-addresses from.
 
 ### Return
@@ -270,10 +263,10 @@ while (undefined !== (ip = extractIPGen.next().value))
 Initialize script to get GeoLocation information. You need to call this function before using `geoInfo()` or `hostInfo()`.
 
 ### Parameters
-**dbPath**  
+**dbPath**
 Path to directory where GeoLocation DB-files located.
 
-**files**  
+**files**
 Object with the following structure:
 ```JavaScript
 {
@@ -308,7 +301,7 @@ Promise without any parameters. Run `geoInfo()` only within `then()` of this Pro
 Get GeoLocation information.
 
 ### Parameters
-**host**  
+**host**
 IP address to get info about.
 
 ### Return
@@ -355,13 +348,13 @@ whois.geoInit('test/GeoIP', {
 ```
 
 ## `bgpInfo(host)`
-Get BGP information, such as Autonomous System number. You can get this info manually by using this command in Linux console:  
+Get BGP information, such as Autonomous System number. You can get this info manually by using this command in Linux console:
 ```bash
 $ echo "-c -r -a -u -p 109.111.139.45" | nc whois.cymru.com 43
 ```
 
 ### Parameters
-**host**  
+**host**
 IP address to get info about.
 
 ### Return
@@ -391,7 +384,7 @@ whois.bgpInfo(host)
 Try to get all possible information about domain name or IP-address.
 
 ### Parameters
-**host**  
+**host**
 Domain name or IP-address.
 
 ### Return
@@ -439,12 +432,7 @@ whois.geoInit('test/GeoIP', {
 
 
 ***
-If this library seems useful and you want it always stay actual you can:
-- donate (more info: http://xinit.co/donate/)
-- comment, share, spread this library
-- send issues and pull requests
 
-
-@license MIT  
-@version 0.0.1  
+@license MIT<br>
+@version 1.0.5<br>
 @author Alexander Zubakov <developer@xinit.ru>

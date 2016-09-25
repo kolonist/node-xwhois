@@ -1,0 +1,11 @@
+{
+    "extends": "google",
+    "installedESLint": true,
+    "rules": {
+        // enable additional rules
+        "indent": ["error", 4],
+        "key-spacing": ["error", { "align": "colon" }],
+        "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true } }],
+        "camelcase": ["off"]
+    }
+}
