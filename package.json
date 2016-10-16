@@ -1,6 +1,6 @@
 {
     "name"       : "node-xwhois",
-    "version"    : "1.0.6",
+    "version"    : "1.0.7",
     "description": "Advanced whois library with extended capabilities.",
     "main"       : "./lib/whois.js",
     "author"     : "Alexander Zubakov <developer@xinit.ru>",
