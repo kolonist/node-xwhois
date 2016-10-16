@@ -1,15 +1,13 @@
 {
     "name"       : "node-xwhois",
-    "version"    : "1.0.5",
+    "version"    : "1.0.6",
     "description": "Advanced whois library with extended capabilities.",
     "main"       : "./lib/whois.js",
     "author"     : "Alexander Zubakov <developer@xinit.ru>",
     "license"    : "MIT",
 
     "scripts": {
-        "test"     : "node test/index.js",
-        "bench"    : "node test/bench.js",
-        "bench:bgp": "node test/bench-bgp.js"
+        "test": "mocha test/index.js"
     },
 
     "repository": {
@@ -39,12 +37,13 @@
         "maxmind"           : "0.6",
         "maxmind-db-reader" : "*",
         "ip2location-nodejs": "*",
-        "node-whois"        : "*",
+        "whois"             : "*",
         "validator"         : "*"
     },
 
     "devDependencies": {
         "eslint"              : "*",
-        "eslint-config-google": "*"
+        "eslint-config-google": "*",
+        "mocha"               : "*"
     }
 }
