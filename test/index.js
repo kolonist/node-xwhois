@@ -224,6 +224,14 @@ describe('reverse()', () => {
         })
         .catch(err => done(err));
     });
+    it('should reverse 151.80.40.204', done => {
+        whois.reverse('151.80.40.204')
+        .then(hostnames => {
+            assert.equal(Array.isArray(hostnames), true);
+            done();
+        })
+        .catch(err => done(err));
+    });
     it('should reverse 83.219.135.245', done => {
         whois.reverse('83.219.135.245')
         .then(hostnames => {
@@ -324,14 +332,6 @@ describe('nslookup()', function() {
         })
         .catch(err => done(err));
     });
-    it('should nslookup зубаков.рф', done => {
-        whois.nslookup('зубаков.рф')
-        .then(addresses => {
-            assert.equal(typeof addresses, 'object');
-            done();
-        })
-        .catch(err => done(err));
-    });
     it('should nslookup XN--80ABERRY5A.XN--P1AI', done => {
         whois.nslookup('XN--80ABERRY5A.XN--P1AI')
         .then(addresses => {
@@ -401,14 +401,6 @@ describe('whois()', () => {
     });
     it('should whois vk.com', done => {
         whois.whois('vk.com')
-        .then(data => {
-            assert.notEqual(data, '');
-            done();
-        })
-        .catch(err => done(err));
-    });
-    it('should whois зубаков.рф', done => {
-        whois.whois('зубаков.рф')
         .then(data => {
             assert.notEqual(data, '');
             done();
@@ -491,12 +483,12 @@ describe('whois()', () => {
 
 describe('torInfo()', () => {
     const testVectors = [
-        {ip: '178.32.181.96'  , isIP: true,  isTOR: true },
-        {ip: '94.242.246.23'  , isIP: true,  isTOR: true },
-        {ip: '94.242.246.24'  , isIP: true,  isTOR: true },
-        {ip: '89.163.237.45'  , isIP: true,  isTOR: true },
-        {ip: '104.131.65.225' , isIP: true,  isTOR: true },
+        {ip: '103.200.210.66', isIP: true,  isTOR: true },
+        {ip: '103.28.53.138' , isIP: true,  isTOR: true },
+        {ip: '104.244.76.13' , isIP: true,  isTOR: true },
+        {ip: '109.9.160.104' , isIP: true,  isTOR: true },
 
+        {ip: '108.12.223.185' , isIP: true,  isTOR: false},
         {ip: '162.243.123.220', isIP: true,  isTOR: false},
         {ip: '23.80.226.4'    , isIP: true,  isTOR: false},
         {ip: '130.253.21.123' , isIP: true,  isTOR: false},
@@ -581,13 +573,8 @@ describe('geoInit()', function() {
 
     it('should properly initialize Geo functions', done => {
         whois.geoInit(path.join('test', 'GeoIP'), {
-            ip2location: {
-                db    : 'ip2location.bin',
-                source: ['IP2LOCATION-LITE-DB5.IPV6.BIN', 'IP2LOCATION-LITE-DB5.BIN']
-            },
-            maxMind  : {city: 'GeoLiteCity.dat',   org: 'GeoIPASNum.dat'  },
-            maxMindv6: {city: 'GeoLiteCityv6.dat', org: 'GeoIPASNumv6.dat'},
-            maxMind2 : 'GeoLite2-City.mmdb'
+            ip2location: 'IP2LOCATION-LITE-DB5.IPV6.BIN',
+            maxMind    : 'GeoLite2-City.mmdb'
         })
         .then(() => {
             describe('geoInfo()', () => {
@@ -595,7 +582,6 @@ describe('geoInit()', function() {
                     '121.200.103.190',
                     '109.111.139.45',
                     '77.109.141.140',
-                    '127.0.0.1',
                     '37.187.130.68',
                     '121.69.113.7',
                     '124.53.86.188',
@@ -610,8 +596,6 @@ describe('geoInit()', function() {
                     '37.60.214.34',
                     '5.135.189.181',
                     '93.228.75.194',
-                    'fc00:3::1200:ff:fe00:1',
-                    '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d',
                     '2001:41d0:8:c6b5::1'
                 ];
 
@@ -643,7 +627,6 @@ describe('bgpInfo()', function() {
         '121.200.103.190',
         '109.111.139.45',
         '77.109.141.140',
-        '127.0.0.1',
         '37.187.130.68',
         '121.69.113.7',
         '124.53.86.188',
@@ -658,8 +641,6 @@ describe('bgpInfo()', function() {
         '37.60.214.34',
         '5.135.189.181',
         '93.228.75.194',
-        'fc00:3::1200:ff:fe00:1',
-        '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d',
         '2001:41d0:8:c6b5::1'
     ];
 
@@ -678,46 +659,31 @@ describe('bgpInfo()', function() {
 });
 
 
-describe('geoInit()', function() {
+
+describe('info()', function() {
     this.timeout(10000);
 
     const testVectors = [
         '121.200.103.190',
-        '162.243.123.220',
-        '5.135.189.181',
-        '127.0.0.1',
+        'google.com',
         'xinit.ru',
-        'yandex.ru',
-        '2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d'
+        '37.187.130.68',
+        '8.8.8.8',
+        'raccoongate.com',
+        '5.135.189.181',
+        '2001:41d0:8:c6b5::1'
     ];
 
-    it('should properly initialize Geo functions', done => {
-        whois.geoInit(path.join('test', 'GeoIP'), {
-            ip2location: {
-                db    : 'ip2location.bin',
-                source: ['IP2LOCATION-LITE-DB5.IPV6.BIN', 'IP2LOCATION-LITE-DB5.BIN']
-            },
-            maxMind  : {city: 'GeoLiteCity.dat',   org: 'GeoIPASNum.dat'  },
-            maxMindv6: {city: 'GeoLiteCityv6.dat', org: 'GeoIPASNumv6.dat'},
-            maxMind2 : 'GeoLite2-City.mmdb'
-        })
-        .then(() => {
-            describe('hostInfo()', () => {
-                testVectors.forEach(host => {
-                    it(`should give info for ${host}`, done => {
-                        whois.hostInfo(host)
-                        .then(data => {
-                            if (data === null)
-                                done(new Error('Should return some info'));
-                            else
-                                done();
-                        })
-                        .catch(err => done(err));
-                    });
-                });
-            });
-            done();
-        })
-        .catch(err => done(err));
+    testVectors.forEach(host => {
+        it(`should give info for ${host}`, done => {
+            whois.info(host)
+            .then(data => {
+                if (data === null)
+                    done(new Error('Should return some info'));
+                else
+                    done();
+            })
+            .catch(err => done(err));
+        });
     });
 });
