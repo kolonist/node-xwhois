@@ -572,10 +572,7 @@ describe('geoInit()', function() {
     this.timeout(10000);
 
     it('should properly initialize Geo functions', done => {
-        whois.geoInit(path.join('test', 'GeoIP'), {
-            ip2location: 'IP2LOCATION-LITE-DB5.IPV6.BIN',
-            maxMind    : 'GeoLite2-City.mmdb'
-        })
+        whois.geoInit(path.join('test', 'GeoIP'))
         .then(() => {
             describe('geoInfo()', () => {
                 const testVectors = [

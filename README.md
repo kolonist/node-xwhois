@@ -28,15 +28,7 @@ const whois = require('node-xwhois');
 const host1 = 'xinit.ru';
 const host2 = '8.8.8.8';
 
-whois.geoInit('test/GeoIP', {
-    ip2location: {
-        db    : 'ip2location.bin',
-        source: ['IP2LOCATION-LITE-DB5.IPV6.BIN', 'IP2LOCATION-LITE-DB5.BIN']
-    },
-    maxMind  : {city: 'GeoLiteCity.dat',   org: 'GeoIPASNum.dat'  },
-    maxMindv6: {city: 'GeoLiteCityv6.dat', org: 'GeoIPASNumv6.dat'},
-    maxMind2 : 'GeoLite2-City.mmdb'
-})
+whois.geoInit('test/GeoIP')
 .then(() => {
     whois.hostInfo(host1)
     .then(data => console.log(`${host1} info:\n`, JSON.stringify(data, null, 4)))
@@ -53,18 +45,19 @@ All asynchronous functions in this library return Promises.
 
 
 # Documentation
-- [ip2long]     (#ip2longip)
-- [isIP]        (#isiphost)
-- [isDomain]    (#isdomainhost)
-- [reverse]     (#reverseip)
-- [nslookup]    (#nslookuphost)
-- [whois]       (#whoishost)
-- [torInfo]     (#torinfoip)
-- [extractIP]   (#extractipstr)
-- [geoInit]     (#geoinitdbpath-files)
-- [geoInfo]     (#geoinfohost)
-- [bgpInfo]     (#bgpinfohost)
-- [hostInfo]    (#hostinfohost)
+- [ip2long](#ip2longip)
+- [isIP](#isiphost)
+- [isDomain](#isdomainhost)
+- [reverse](#reverseip)
+- [nslookup](#nslookuphost)
+- [whois](#whoishost)
+- [torInfo](#torinfoip)
+- [extractIP](#extractipstr)
+- [geoInit](#geoinitdbpath)
+- [geoInfo](#geoinfohost)
+- [geoUpdate](#geoupdatedbpath-token)
+- [bgpInfo](#bgpinfohost)
+- [info](#infohost)
 
 ## `ip2long(ip)`
 A JavaScript equivalent of PHP's ip2long(). Convert IPv4 address in dotted notation to 32-bit long integer.
@@ -228,36 +221,6 @@ whois.extractIP(ipStr)
 .then(info => console.log('extractIP:\n', JSON.stringify(info, null, 4)))
 .catch(err => console.log(err));
 ```
-## `extractIPGen(str)`
-Extract IP-addresses from raw text.
-Unlike `extractIP()` this function returns not Promise but Generator.
-
-_Note that this generator function is much more slower than `extractIP()` promise function._
-
-### Parameters
-**str**
-String to extract IP-addresses from.
-
-### Return
-Generator which returns IP address on each `next()` until all unique IP-addresses will be read from `str`.
-
-### Example
-```JavaScript
-const ipStr = `
-    test raw text test raw text
-    77.109.141.140    (37.187.130.68)   ++   188.40.143.7   $$   95.174.227.96 test raw text
-    test raw text test raw text test raw text test raw text
-    2001:0db8:11a3:09d7:1f34:8a2e:07a0:765d    test raw text test raw text
-    2001:0db8:0000:0000:0000:0000:ae21:ad12
-    test raw text
-    188.40.143.7 188.40.143.7
-`;
-
-const extractIPGen = whois.extractIPGen(ipStr);
-let ip;
-while (undefined !== (ip = extractIPGen.next().value))
-    console.log('extractIPGen:', ip);
-```
 
 ## `geoInit(dbPath, files)`
 Initialize script to get GeoLocation information. You need to call this function before using `geoInfo()` or `hostInfo()`.
@@ -266,32 +229,7 @@ Initialize script to get GeoLocation information. You need to call this function
 **dbPath**
 Path to directory where GeoLocation DB-files located.
 
-**files**
-Object with the following structure:
-```JavaScript
-{
-    ip2location: {
-        db: 'ip2location.bin',
-
-        // IPv6 first!!!
-        source: [
-            'IP2LOCATION-LITE-DB5.IPV6.BIN',
-            'IP2LOCATION-LITE-DB5.BIN'
-        ]
-    },
-    maxMind: {
-        city: 'GeoLiteCity.dat',
-        org : 'GeoIPASNum.dat'
-    },
-    maxMindv6: {
-        city: 'GeoLiteCityv6.dat',
-        org : 'GeoIPASNumv6.dat'
-    },
-    maxMind2: 'GeoLite2-City.mmdb'
-}
-```
-
-You need  to download GeoLocation databases by yourself.
+You need to download GeoLocation databases by yourself or using `geoUpdate()`.
 
 ### Return
 Promise without any parameters. Run `geoInfo()` only within `then()` of this Promise to be sure that all GeoLocation DB properly loaded.
@@ -347,6 +285,35 @@ whois.geoInit('test/GeoIP', {
 .catch(err => console.log(err));
 ```
 
+## `geoUpdate(dbPath, token)`
+Update MaxMind and IP2Location databases.
+
+### Parameters
+**dbPath**
+Full local path to store DB files.
+
+**token**
+API token to download IP2Location database. You should register on https://www.ip2location.com/ to get it.
+
+### Return
+Promise without any parameters.
+
+### Example
+```JavaScript
+const path  = './GeoIP';
+const token = 'insert your token here';
+
+whois.geoUpdate(path, token)
+.then(() => {
+    console.log('OK');
+})
+.catch(err => {
+    console.log('ERROR');
+    console.log(err);
+});
+```
+
+
 ## `bgpInfo(host)`
 Get BGP information, such as Autonomous System number. You can get this info manually by using this command in Linux console:
 ```bash
@@ -380,8 +347,8 @@ whois.bgpInfo(host)
 .catch(err => console.log(err));
 ```
 
-## `hostInfo(host)`
-Try to get all possible information about domain name or IP-address.
+## `info(host)`
+Get all possible information about domain name or IP-address.
 
 ### Parameters
 **host**
@@ -409,21 +376,13 @@ Promise where `then()` has the following object as parameter:
 const host1 = 'xinit.co';
 const host2 = '8.8.8.8';
 
-whois.geoInit('test/GeoIP', {
-    ip2location: {
-        db    : 'ip2location.bin',
-        source: ['IP2LOCATION-LITE-DB5.IPV6.BIN', 'IP2LOCATION-LITE-DB5.BIN']
-    },
-    maxMind  : {city: 'GeoLiteCity.dat',   org: 'GeoIPASNum.dat'  },
-    maxMindv6: {city: 'GeoLiteCityv6.dat', org: 'GeoIPASNumv6.dat'},
-    maxMind2 : 'GeoLite2-City.mmdb'
-})
+whois.geoInit('test/GeoIP')
 .then(() => {
-    whois.hostInfo(host1)
+    whois.info(host1)
     .then(data => console.log(`${host1} info:\n`, JSON.stringify(data, null, 4)))
     .catch(err => console.log(err));
 
-    whois.hostInfo(host2)
+    whois.info(host2)
     .then(data => console.log(`${host2} info:\n`, JSON.stringify(data, null, 4)))
     .catch(err => console.log(err));
 })
@@ -434,5 +393,5 @@ whois.geoInit('test/GeoIP', {
 ***
 
 @license MIT<br>
-@version 1.0.5<br>
+@version 2.0.1<br>
 @author Alexander Zubakov <developer@xinit.ru>
