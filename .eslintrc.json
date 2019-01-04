@@ -1,0 +1,9 @@
+{
+    "extends": "google",
+    "rules": {
+        "indent": ["error", 4],
+        "key-spacing": ["error", { "align": "colon" }],
+        "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true } }],
+        "camelcase": ["off"]
+    }
+}
