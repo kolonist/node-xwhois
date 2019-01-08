@@ -247,19 +247,20 @@ Promise where `then()` has object as parameter like in this example:
 ```JavaScript
 {
     ip          : '78.46.112.219',
-    as          : 'AS24940 Hetzner Online GmbH',
-    country     : 'Germany',
-    country_ru  : 'Германия',
-    country_code: 'DE',
+    asn         : '24940',
+    as_org      : 'Hetzner Online GmbH',
+    proxy       : 'VPN', // see https://www.ip2proxy.com/ for possible values
+    country_code: ['DE'],
+    country     : ['Germany'],
     region      : [ 'Bayern', 'Bavaria', 'Sachsen' ],
-    region_ru   : 'Бавария',
     city        : [ 'Nürnberg', 'Nuremberg', 'Falkenstein' ],
+    country_ru  : 'Германия',
+    region_ru   : 'Бавария',
     city_ru     : 'Нюрнберг',
     timezone    : 'Europe/Berlin',
     coords      : [
         { lat: 49.4478, lon: 11.068299999999994 },
-        { lat: 49.4478, lon: 11.0683 },
-        { lat: 50.47787857055664, lon: 12.37129020690918 }
+        { lat: 49.4478, lon: 11.0683 }
     ]
 }
 ```

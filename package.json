@@ -1,6 +1,6 @@
 {
     "name": "node-xwhois",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Advanced whois library with extended capabilities.",
     "main": "./lib/whois.js",
     "author": "Alexander Zubakov <developer@xinit.ru>",
@@ -30,8 +30,8 @@
     ],
     "dependencies": {
         "@maxmind/geoip2-node": "latest",
-        "geolite2": "latest",
         "ip2location-nodejs": "latest",
+        "ip2proxy-nodejs": "latest",
         "whois": "latest",
         "jszip": "latest",
         "tar-stream": "latest"
