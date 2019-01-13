@@ -7,7 +7,7 @@ const fs     = require('fs');
 // require lib
 const whois = require('./../lib/whois');
 
-/*
+
 describe('ip2long()', () => {
     it('should convert 192.0.34.166 to 3221234342', done => {
         assert.equal(whois.ip2long('192.0.34.166'), 3221234342);
@@ -566,7 +566,7 @@ describe('extractIP()', function() {
         });
     });
 });
-*/
+
 
 describe('geoInit()', function() {
     this.timeout(10000);
@@ -614,6 +614,7 @@ describe('geoInit()', function() {
                     '220.224.73.67',
                     '220.224.76.132',
                     '220.224.80.55',
+                    '86.39.37.158',
                 ];
 
                 testVectors.forEach(ip => {
@@ -625,7 +626,7 @@ describe('geoInit()', function() {
                             else {
                                 done();
                             }
-                            console.log(data);
+                            //console.log(data);
                         })
                         .catch(err => done(err));
                     });
@@ -637,7 +638,7 @@ describe('geoInit()', function() {
     });
 });
 
-/*
+
 describe('bgpInfo()', function() {
     this.timeout(10000);
 
@@ -705,4 +706,3 @@ describe('info()', function() {
         });
     });
 });
-*/
