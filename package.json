@@ -1,6 +1,6 @@
 {
     "name": "node-xwhois",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "Advanced whois library with extended capabilities.",
     "main": "./lib/whois.js",
     "author": "Alexander Zubakov <developer@xinit.ru>",
@@ -37,8 +37,8 @@
         "tar-stream": "latest"
     },
     "devDependencies": {
-        "eslint": "^5.11.1",
-        "eslint-config-google": "^0.11.0",
+        "eslint": "latest",
+        "eslint-config-google": "latest",
         "mocha": "latest"
     }
 }
