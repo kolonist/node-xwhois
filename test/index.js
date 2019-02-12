@@ -643,6 +643,7 @@ describe('bgpInfo()', function() {
     this.timeout(10000);
 
     const testVectors = [
+        '183.88.220.162',
         '121.200.103.190',
         '109.111.139.45',
         '77.109.141.140',
@@ -706,3 +707,4 @@ describe('info()', function() {
         });
     });
 });
+

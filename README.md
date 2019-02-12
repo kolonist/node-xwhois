@@ -222,7 +222,7 @@ whois.extractIP(ipStr)
 .catch(err => console.log(err));
 ```
 
-## `geoInit(dbPath, files)`
+## `geoInit(dbPath)`
 Initialize script to get GeoLocation information. You need to call this function before using `geoInfo()` or `hostInfo()`.
 
 ### Parameters
@@ -231,8 +231,15 @@ Path to directory where GeoLocation DB-files located.
 
 You need to download GeoLocation databases by yourself or using `geoUpdate()`.
 
+If you will download it manually you should get following files:<br>
+    `GeoLite2-City.mmdb` and `GeoLite2-ASN.mmdb` from
+    [MaxMind](https://www.maxmind.com/en/geoip2-databases)<br>
+    `IP2LOCATION-LITE-DB5.IPV6.BIN` and `IP2PROXY-LITE-PX4.BIN` from
+    [IP2Location](https://www.ip2location.com/database)
+
 ### Return
-Promise without any parameters. Run `geoInfo()` only within `then()` of this Promise to be sure that all GeoLocation DB properly loaded.
+Promise without any parameters. Run `geoInfo()` only within `then()` of this
+Promise to be sure that all GeoLocation DB properly loaded.
 
 
 ## `geoInfo(host)`
@@ -269,19 +276,12 @@ Promise where `then()` has object as parameter like in this example:
 ```JavaScript
 const host = '199.87.154.255';
 
-whois.geoInit('test/GeoIP', {
-    ip2location: {
-        db    : 'ip2location.bin',
-        source: ['IP2LOCATION-LITE-DB5.IPV6.BIN', 'IP2LOCATION-LITE-DB5.BIN']
-    },
-    maxMind  : {city: 'GeoLiteCity.dat',   org: 'GeoIPASNum.dat'  },
-    maxMindv6: {city: 'GeoLiteCityv6.dat', org: 'GeoIPASNumv6.dat'},
-    maxMind2 : 'GeoLite2-City.mmdb'
-})
+whois.geoInit('test/GeoIP')
 .then(() => {
-    whois.geoInfo(host)
-    .then(info => console.log(`${host} geoInfo:\n`, info))
-    .catch(err => console.log(err));
+    return whois.geoInfo(host);
+})
+.then(info => {
+    console.log(`${host} geoInfo:\n`, info)
 })
 .catch(err => console.log(err));
 ```
@@ -326,9 +326,9 @@ $ echo "-c -r -a -u -p 109.111.139.45" | nc whois.cymru.com 43
 IP address to get info about.
 
 ### Return
-Promise with the following object in `then()`:
+Promise with array of the following objects in `then()`:
 ```JavaScript
-{
+[{
     "as": "18451",
     "ip": "199.87.154.255",
     "prefix": "199.87.152.0/21",
@@ -336,7 +336,7 @@ Promise with the following object in `then()`:
     "registry": "arin",
     "allocation_date": "2011-01-31",
     "name": "ASN-LES - LES.NET,CA"
-}
+}]
 ```
 
 ### Example
@@ -394,5 +394,5 @@ whois.geoInit('test/GeoIP')
 ***
 
 @license MIT<br>
-@version 2.0.1<br>
-@author Alexander Zubakov <developer@xinit.ru>
+@version 2.0.9<br>
+@author Alexander Russkiy <developer@xinit.ru>
