@@ -394,5 +394,5 @@ whois.geoInit('test/GeoIP')
 ***
 
 @license MIT<br>
-@version 2.0.9<br>
+@version 2.0.10<br>
 @author Alexander Russkiy <developer@xinit.ru>
